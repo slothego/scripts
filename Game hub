@@ -1,0 +1,37 @@
+repeat task.wait() until game:IsLoaded()
+
+local Games = {
+    [13772394625] = "https://raw.githubusercontent.com/slothego/scripts/refs/heads/main/blade%20ball",
+    [0]    = "https://raw.githubusercontent.com/username/repo/main/game1.lua",
+    [1]    = "https://raw.githubusercontent.com/username/repo/main/game2.lua",
+    [2]    = "https://raw.githubusercontent.com/username/repo/main/game3.lua",
+    [3]     = "https://raw.githubusercontent.com/username/repo/main/game4.lua",
+}
+
+local player = game.Players.LocalPlayer
+local supported = false
+
+for placeId, scriptUrl in pairs(Games) do
+    if game.PlaceId == placeId then
+        supported = true
+        local success, err = pcall(function()
+            loadstring(game:HttpGet(scriptUrl, true))()
+        end)
+        if not success then
+            warn("Failed to load script: " .. tostring(err))
+        end
+        break
+    end
+end
+
+if not supported then
+    if player then
+        player:Kick("Game is not Supported")
+    else
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Game Invalid",
+            Text = "Game is not Supported",
+            Duration = 10
+        })
+    end
+end
