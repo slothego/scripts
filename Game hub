@@ -5,7 +5,6 @@ local Games = {
     ["https://raw.githubusercontent.com/slothego/scripts/refs/heads/main/CBK2dw99%23%26%3Dv68DWMN%24Cu*yu"] = {71832465156084, 14282320915, 14732610803, 14386691987},
     ["https://raw.githubusercontent.com/slothego/scripts/refs/heads/main/wpztLa%26%26QW!T4c%25Eyf5awct%3Dtu"] = {3101667897,3232996272,3276265788},
     ["https://raw.githubusercontent.com/slothego/scripts/refs/heads/main/rpue4Hs%40*%40PwC4fLYc8tdAhCeS"] = {3623096087},
-    ["https://raw.githubusercontent.com/username/repo/main/game4.lua"] = {3},
 }
 
 local placeId = game.PlaceId
