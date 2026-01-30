@@ -1,37 +1,37 @@
 repeat task.wait() until game:IsLoaded()
 
 local Games = {
-    [13772394625] = "https://raw.githubusercontent.com/slothego/scripts/refs/heads/main/blade%20ball",
-    [0]    = "https://raw.githubusercontent.com/username/repo/main/game1.lua",
-    [1]    = "https://raw.githubusercontent.com/username/repo/main/game2.lua",
-    [2]    = "https://raw.githubusercontent.com/username/repo/main/game3.lua",
-    [3]    = "https://raw.githubusercontent.com/username/repo/main/game4.lua",
+    ["https://raw.githubusercontent.com/slothego/scripts/refs/heads/main/B!%23gK64ax5VdvCG%24VfuSM8%5E"] = {13772394625, 14732610803, 14915220621, 15131065025, 15144787112, 15264892126, 15509350986, 15517169103, 16281300371, 16331598816, 16581637217, 16581648071, 18799085098, 15234596844},
+    ["https://raw.githubusercontent.com/slothego/scripts/refs/heads/main/CBK2dw99%23%26%3Dv68DWMN%24Cu*yu"] = {71832465156084, 14282320915, 14732610803, 14386691987},
+    ["https://raw.githubusercontent.com/slothego/scripts/refs/heads/main/wpztLa%26%26QW!T4c%25Eyf5awct%3Dtu"] = {3101667897,3232996272,3276265788},
+    ["https://raw.githubusercontent.com/slothego/scripts/refs/heads/main/rpue4Hs%40*%40PwC4fLYc8tdAhCeS"] = {3623096087},
+    ["https://raw.githubusercontent.com/username/repo/main/game4.lua"] = {3},
 }
 
-local player = game.Players.LocalPlayer
-local supported = false
+local placeId = game.PlaceId
+local scriptUrl = nil
 
-for placeId, scriptUrl in pairs(Games) do
-    if game.PlaceId == placeId then
-        supported = true
-        local success, err = pcall(function()
-            loadstring(game:HttpGet(scriptUrl, true))()
-        end)
-        if not success then
-            warn("Failed to load script: " .. tostring(err))
+for url, ids in pairs(Games) do
+    for _, id in ipairs(ids) do
+        if placeId == id then
+            scriptUrl = url
+            break
         end
-        break
     end
+    if scriptUrl then break end
 end
 
-if not supported then
-    if player then
-        player:Kick("Game is not Supported")
+if scriptUrl then
+    local success, content = pcall(game.HttpGet, game, scriptUrl, true)
+    
+    if success then
+        local execSuccess, execError = pcall(loadstring(content))
+        if not execSuccess then
+            warn("Execution failed: " .. tostring(execError))
+        end
     else
-        game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = "Game Invalid",
-            Text = "Game is not Supported",
-            Duration = 10
-        })
+        warn("Failed to fetch script: " .. tostring(content))
     end
+else
+    game.Players.LocalPlayer:Kick("Game not Supported")
 end
