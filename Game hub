@@ -4,7 +4,7 @@ local Games = {
     ["https://raw.githubusercontent.com/slothego/scripts/refs/heads/main/B!%23gK64ax5VdvCG%24VfuSM8%5E"] = {13772394625, 14732610803, 14915220621, 15131065025, 15144787112, 15264892126, 15509350986, 15517169103, 16281300371, 16331598816, 16581637217, 16581648071, 18799085098, 15234596844},
     ["https://raw.githubusercontent.com/slothego/scripts/refs/heads/main/CBK2dw99%23%26%3Dv68DWMN%24Cu*yu"] = {71832465156084, 14282320915, 14732610803, 14386691987},
     ["https://raw.githubusercontent.com/slothego/scripts/refs/heads/main/wpztLa%26%26QW!T4c%25Eyf5awct%3Dtu"] = {3101667897,3232996272,3276265788},
-    ["https://raw.githubusercontent.com/slothego/scripts/refs/heads/main/rpue4Hs%40*%40PwC4fLYc8tdAhCeS"] = {3623096087},
+    ["https://6ed3a22b-58ad-403f-a7f8-7d59ced51a7c-00-kruz3w22lb89.spock.replit.dev/raw/7"] = {3623096087},
 }
 
 local placeId = game.PlaceId
